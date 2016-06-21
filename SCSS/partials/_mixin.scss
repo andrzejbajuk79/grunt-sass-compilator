@@ -1,0 +1,110 @@
+@mixin extra-small-screen() {
+	@media only screen  and(max-width: 320px) {
+		@content;
+		
+	}
+}
+
+@mixin small-screen() {
+	@media only screen  and(max-width: 480px) {
+		@content;
+		
+	}
+}
+
+@mixin medium-screen() {
+	@media only screen  and(max-width: 680px) {
+		@content;
+		
+	}
+}
+
+@mixin large-screen() {
+	@media only screen  and(max-width: 960px) {
+		@content;
+		
+	}
+}
+
+
+
+@mixin google-font($font) {
+	$font: unquote($font);
+	@import url(https://fonts.googleapis.com/css?family=#{$font})
+}
+
+@mixin warning {
+	background-color: orange;
+	color: #fff;
+
+	&:hover {
+		background-color: lighten(orange, 15%);
+	}
+}
+/*
+wielokretne parametry argument z : "..." 3 kropki po zmiennej
+http://stackoverflow.com/questions/3525007/making-a-sass-mixin-with-optional-arguments
+po przecinku mozna podawac  kilka wartosci po przecinku
+
+*/
+@mixin box-shadow($shadows...) {    // ($shadows...) !!!! wielokrotne parametry
+	box-shadow: $shadows;
+}
+
+@mixin apply-to-ie-6 {				//content-direktive.. cokolwiek wrzucimy do tego mixin  bedzie przeniesione automatycznie do content 
+	* html {						// i w ten sposob  zostanie ograniczona tylko do ie 6
+		@content;					// * html selektor na ktor tylko przegladarka  ie 6 odpowiada
+	}
+
+}
+
+@mixin large-text {
+	font: {
+		size: 52px;
+		weight: bold;
+	}
+}
+
+@mixin rounded($radius: 6px) {                      
+	border-radius: $radius;        
+}
+
+@mixin box($radius: 5px, $border: 1px solid #000) {    // mixin z parametrem i ustawiona wartoscia default
+	@include rounded ($radius);    
+	border: $border                
+}
+
+@mixin fancy-links {
+	a {
+		text-decoration: none;
+		font-style: italic;
+	}
+}
+
+@mixin fancy-line {
+	 padding: 20px 20px 20px;
+	 position: relative;
+	 
+}
+
+@mixin fancy-line-before{
+			content: "";
+			display: block;
+			width: 60%;
+			position: absolute;
+			height: 2px;
+			top: -1px;
+		    left: 0;
+		    background-color: #A5F800;
+}
+
+@mixin fancy-line-after {
+			content: "";
+			display: block;
+			width: 60%;
+			position: absolute;
+			height: 2px;
+			bottom: -1px;
+		    left: 0;
+		    background-color: $theme-color;
+		}
