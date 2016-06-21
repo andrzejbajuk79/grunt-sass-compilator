@@ -18,16 +18,16 @@ module.exports = function(grunt) {
 		  }
 		},
 		// imagine
-		imagemin: {
-	  		dynamic: {
-	  			files: [{
-	  				expand: true,
-	  				cwd: 'images/',
-	  				src: ['**/*.{png,jpg,gif}'],
-	  				dest: 'images/build/'
-	  			}]
-	  		}
-	  	},
+		// imagemin: {
+	 //  		dynamic: {
+	 //  			files: [{
+	 //  				expand: true,
+	 //  				cwd: 'images/',
+	 //  				src: ['**/*.{png,jpg,gif}'],
+	 //  				dest: 'images/build/'
+	 //  			}]
+	 //  		}
+	 //  	},
 	  	// browserSync
 	  	
 	  	browserSync: {
@@ -45,19 +45,19 @@ module.exports = function(grunt) {
             }
         },
 
-        imageoptim : {
-	      options : {
-	        quitAfter : true
-	      },
-	      images : {
-	        files: [{
-	          expand  : true,
-	          cwd     : 'dev/img/',
-	          src     : ['**/*.{png,jpg,gif}'],
-	          dest    : 'prod/img/'
-	        }]
-	      }
-	    },
+     //    imageoptim : {
+	    //   options : {
+	    //     quitAfter : true
+	    //   },
+	    //   images : {
+	    //     files: [{
+	    //       expand  : true,
+	    //       cwd     : 'dev/img/',
+	    //       src     : ['**/*.{png,jpg,gif}'],
+	    //       dest    : 'prod/img/'
+	    //     }]
+	    //   }
+	    // },
 	
 
 	  	/**
@@ -73,11 +73,11 @@ module.exports = function(grunt) {
 	});
 
     grunt.loadNpmTasks('grunt-browser-sync');
-	grunt.loadNpmTasks('grunt-contrib-imagemin')
+
 	grunt.loadNpmTasks('grunt-contrib-sass');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-imageoptim');
 	
-	grunt.registerTask('default', ['sass', 'imagemin','browserSync','imageoptim','watch']);
+	grunt.registerTask('default', ['sass', 'browserSync','watch']);
 	
 }
